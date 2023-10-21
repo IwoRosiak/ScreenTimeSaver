@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="IwoRosiak.ScreenTimeSaver.ScreenTimeManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:consoleDisplay="clr-namespace:IwoRosiak.ScreenTimeSaver.ConsoleDisplay"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Watch Control" Margin="6">
+            <StackPanel Orientation="Vertical">
+                <Label Content="{Binding WatchStatus}"/>
+                <Button Width="75" Height="25" Command="{Binding StartWatchingCommand}">Start</Button>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Header="Output"  Margin="6">
+            <consoleDisplay:Console Grid.Row="1" x:Name="Console" DataContext="{Binding ConsoleViewModel}"/>
+        </GroupBox>
+    </Grid>
+</UserControl>
